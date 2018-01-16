@@ -66,7 +66,7 @@ balance -->(double) default set to 0<br>
 bonus -->(double)  bonus balance<br>
 bonus_percentage-->(double) bonus percentage ,calculate automatically<br>
 ctime --> (timestamp) ,  time ceated record<br>
-mtime -->(timestamp ) , time modified time<br>
+mtime -->(timestamp ) , time modified record<br>
 <br>
 Trans table <br>
 id_user -->id relation with users table<br>
@@ -82,14 +82,14 @@ USE CASE
 --------
 
 User 
-
+<br>
 create --> POST  server_name/test/index.php/user <br>
 update --> PUT   server_name/test/web/index.php/user/:id <br>
 view   --> GET   server_name/test/web/index.php/user/:id <br>
 index  --> GET   server_name/test/web/index.php/user <br>
 
 
-Transaction 
+Transaction <br><br>
 report   --> GET server_name/test/index.php/transaction?days:number <br>
 create   -->POST server_name/test/index.php/transaction <br>
 view     --> GET server_name/test/index.php/transaction/:id <br>
