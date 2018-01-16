@@ -39,7 +39,7 @@ class TransactionController extends ActiveController {
      * refused , if the transaction has been refused(not enough balance)
      *  Every 3rd deposit of the customer should be awarded with bonus on the deposit amount according to his bonus parameter
 
-     * POST ipadress/test/index.php/transaction
+     * POST server_name/index.php/transaction
      * 
      *    */
 
@@ -101,7 +101,7 @@ class TransactionController extends ActiveController {
      * days (int) , number of days of the report ,  no given ,a week by default 
      * return a list of transaction by  days and country
      * 
-     * GET ipadress/test/index.php/transaction?days=:number
+     * GET  server_name/index.php/transaction?days=:number
      *      */
 
     function actionIndex() {
@@ -113,7 +113,7 @@ class TransactionController extends ActiveController {
             $days = 7;
         $report = Yii::$app->db->createCommand('select date(date_insert) as date , country , count(distinct(id_user)) as users , COUNT(CASE WHEN amount > 0 THEN 1 END) AS deposit  , sum(CASE WHEN amount > 0 THEN amount  else 0 END )as total_deposit , 
                                 COUNT(CASE WHEN amount < 0 THEN 1  END) as withdraw  , sum(CASE WHEN amount < 0 THEN amount else 0  END )as total_withdraw 
-                             from test.trans inner join users  on users.id=`trans`.`id_user`  where (date_insert > curdate() - interval :days day ) and refused is null group by date(date_insert),country')
+                             from trans inner join users  on users.id=`trans`.`id_user`  where (date_insert > curdate() - interval :days day ) and refused is null group by date(date_insert),country')
                         ->bindParam(':days', $days)->queryAll();
 
         return  $report;
