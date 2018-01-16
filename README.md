@@ -46,9 +46,9 @@ CONFIGURATION
 ### Database
 
 
-run the sql 
-
-source config/database.sql
+run the sql.
+---
+source config/database.sql.
 Edit the file `config/db.php` with real data, for example:
 
 ```php
