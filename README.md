@@ -51,6 +51,31 @@ return [
 - Refer to the README in the `tests` directory for information specific to basic application tests.
 
 
+FIELDS DATABASE
+----------------
+
+<br>
+Users table<br>
+<br>
+first_name (String) required<br>
+last_name (String)required<br>
+Gender (String)<br>
+email (String) (unique)required<br>
+country (String) required<br>
+balance (double) default set to 0<br>
+bonus (double)  bonus balance<br>
+bonus_percentage(double) bonus percentage ,calculate automatically<br>
+ctime  (timestamp) ,  time ceated record<br>
+mtime (timestamp ) , time modified time<br>
+<br>
+Trans table <br>
+id_user id relation with users table<br>
+amount double positive deposit, negative withdraw<br>
+date_insert timestamp , date of creation of deposit<br>
+ctime timestamp , date of creation of the record<br>
+refused boolean if the withdraw is refused because tnot enough balance <br>
+<br>
+
 
 
 USE CASE
